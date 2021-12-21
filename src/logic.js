@@ -2,10 +2,10 @@ function info() {
     console.log("INFO")
     const response = {
         apiversion: "1",
-        author: "",
-        color: "#888888",
-        head: "default",
-        tail: "default"
+        author: "Aly C",
+        color: "#98473E",
+        head: "evil",
+        tail: "fat-rattle"
     }
     return response
 }
@@ -29,6 +29,13 @@ function move(gameState) {
     // Step 0: Don't let your Battlesnake move back on its own neck
     const myHead = gameState.you.head
     const myNeck = gameState.you.body[1]
+    const boardWidth = gameState.board.width
+    const boardHeight = gameState.board.height
+    const offset = 1
+
+    console.log("head.x " + myHead.x)
+    console.log("head.y " + myHead.y)
+
     if (myNeck.x < myHead.x) {
         possibleMoves.left = false
     } else if (myNeck.x > myHead.x) {
@@ -40,9 +47,21 @@ function move(gameState) {
     }
 
     // TODO: Step 1 - Don't hit walls.
-    // Use information in gameState to prevent your Battlesnake from moving beyond the boundaries of the board.
-    // const boardWidth = gameState.board.width
-    // const boardHeight = gameState.board.height
+    // Use information in gameState to prevent your Battlesnake from moving beyond the boundaries of the board.  
+
+    if ((myHead.x == boardWidth + offset) && (myHead.y != boardHeight + offset)) {
+      possibleMoves.right = false
+      console.log("not right")
+    }else if ((myHead.x == (boardWidth - boardWidth) + offset) && (myHead.y != (boardHeight - boardHeight) + offset)) {
+      possibleMoves.left = false
+      console.log("Not left")
+    }else if ((myHead.y == boardHeight + offset) && (myHead.x != boardWidth + offset)) {
+      possibleMoves.up = false
+      console.log("not up")
+    }else if ((myHead.y == (boardHeight - boardHeight) + offset) && (myHead.x != (boardWidth - boardWidth) + offset)) {
+      possibleMoves.down = false
+      console.log("not down")
+    }
 
     // TODO: Step 2 - Don't hit yourself.
     // Use information in gameState to prevent your Battlesnake from colliding with itself.
@@ -71,3 +90,4 @@ module.exports = {
     move: move,
     end: end
 }
+

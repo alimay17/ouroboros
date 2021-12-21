@@ -2,5 +2,5 @@
 .cmd
 .idea
 .vscode
-
+.breakpoints
 node_modules
