@@ -36,32 +36,66 @@ function move(gameState) {
     console.log("head.x " + myHead.x)
     console.log("head.y " + myHead.y)
 
+
+    //if (myNeck.x > myHead.x) {
+      //possibleMoves.right = false
+      //console.log("not right neck")
+    //}
+    if (myHead.x == boardWidth - offset) {
+      possibleMoves.right = false
+      console.log("not right")
+    }
+      
+    //if (myNeck.x > myHead.x) {
+      //possibleMoves.left = false
+      //console.log("Not left neck")
+    //}
+    if (myHead.x == (boardWidth - boardWidth)) {
+      possibleMoves.left = false
+      console.log("Not left")
+    }
+        
+    //if (myNeck.y > myHead.y) {
+      //possibleMoves.up = false
+      //console.log("not up neck")
+    //}
+    if (myHead.y == boardHeight - offset) {
+      possibleMoves.up = false
+      console.log("not up")
+    }
+  
+    //if (myNeck.y < myHead.y) {
+        //possibleMoves.down = false
+        //console.log("not down neck")
+    //}  
+    if (myHead.y == boardHeight - boardHeight) {
+      possibleMoves.down = false
+      console.log("not down")
+    }
+
+  console.log(possibleMoves)
+
     if (myNeck.x < myHead.x) {
-        possibleMoves.left = false
-    } else if (myNeck.x > myHead.x) {
-        possibleMoves.right = false
-    } else if (myNeck.y < myHead.y) {
-        possibleMoves.down = false
-    } else if (myNeck.y > myHead.y) {
-        possibleMoves.up = false
+      possibleMoves.left = false
+      console.log("Not left neck")
+    } 
+    else if (myNeck.x > myHead.x) {
+      possibleMoves.right = false
+      console.log("not right neck")
+    } 
+    else if (myNeck.y < myHead.y) {
+      possibleMoves.down = false
+      console.log("not down neck")
+    } 
+    else if (myNeck.y > myHead.y) {
+      possibleMoves.up = false
+      console.log("not up neck")
+
     }
 
     // TODO: Step 1 - Don't hit walls.
     // Use information in gameState to prevent your Battlesnake from moving beyond the boundaries of the board.  
 
-    if ((myHead.x == boardWidth + offset) && (myHead.y != boardHeight + offset)) {
-      possibleMoves.right = false
-      console.log("not right")
-    }else if ((myHead.x == (boardWidth - boardWidth) + offset) && (myHead.y != (boardHeight - boardHeight) + offset)) {
-      possibleMoves.left = false
-      console.log("Not left")
-    }else if ((myHead.y == boardHeight + offset) && (myHead.x != boardWidth + offset)) {
-      possibleMoves.up = false
-      console.log("not up")
-    }else if ((myHead.y == (boardHeight - boardHeight) + offset) && (myHead.x != (boardWidth - boardWidth) + offset)) {
-      possibleMoves.down = false
-      console.log("not down")
-    }
 
     // TODO: Step 2 - Don't hit yourself.
     // Use information in gameState to prevent your Battlesnake from colliding with itself.
