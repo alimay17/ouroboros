@@ -33,47 +33,22 @@ function move(gameState) {
     const boardHeight = gameState.board.height
     const offset = 1
 
-    console.log("head.x " + myHead.x)
-    console.log("head.y " + myHead.y)
-
-
-    //if (myNeck.x > myHead.x) {
-      //possibleMoves.right = false
-      //console.log("not right neck")
-    //}
     if (myHead.x == boardWidth - offset) {
       possibleMoves.right = false
       console.log("not right")
     }
-      
-    //if (myNeck.x > myHead.x) {
-      //possibleMoves.left = false
-      //console.log("Not left neck")
-    //}
     if (myHead.x == (boardWidth - boardWidth)) {
       possibleMoves.left = false
       console.log("Not left")
     }
-        
-    //if (myNeck.y > myHead.y) {
-      //possibleMoves.up = false
-      //console.log("not up neck")
-    //}
     if (myHead.y == boardHeight - offset) {
       possibleMoves.up = false
       console.log("not up")
     }
-  
-    //if (myNeck.y < myHead.y) {
-        //possibleMoves.down = false
-        //console.log("not down neck")
-    //}  
     if (myHead.y == boardHeight - boardHeight) {
       possibleMoves.down = false
       console.log("not down")
     }
-
-  console.log(possibleMoves)
 
     if (myNeck.x < myHead.x) {
       possibleMoves.left = false
