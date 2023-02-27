@@ -1,3 +1,4 @@
+// Author Info
 function info() {
   console.log("INFO")
   const response = {
@@ -10,14 +11,17 @@ function info() {
   return response
 }
 
+// Main start game
 function start(gameState) {
   console.log(`${gameState.game.id} START`)
 }
 
+// end game
 function end(gameState) {
   console.log(`${gameState.game.id} END\n`)
 }
 
+// move - controls battle snake moves
 function move(gameState) {
   let possibleMoves = {
     up: true,
@@ -25,9 +29,12 @@ function move(gameState) {
     left: true,
     right: true
   }
-
+  // battlesnake states
   const myHead = gameState.you.head
   const myNeck = gameState.you.body[1]
+  const mybody = gameState.you.body
+
+  // board onditions
   const boardWidth = gameState.board.width
   const boardHeight = gameState.board.height
   const offset = 1
@@ -62,7 +69,21 @@ function move(gameState) {
 
   // TODO: Step 2 - Don't hit yourself.
   // Use information in gameState to prevent your Battlesnake from colliding with itself.
-  // const mybody = gameState.you.body
+  mybody.forEach((segment, body) => {
+    if(segment.x < myHead.x) {
+      possibleMoves.left = false
+    }
+    else if (segment.x > myHead.x) {
+      possibleMoves.right = false
+    }
+    else if (segment.y < myHead.y) {
+      possibleMoves.down = false
+    }
+    else if (segment.y > myHead.y) {
+      possibleMoves.up = false
+  }
+  })
+  
 
   // TODO: Step 3 - Don't collide with others.
   // Use information in gameState to prevent your Battlesnake from colliding with others.

@@ -54,4 +54,10 @@ describe('Battlesnake Moves', () => {
             expect(allowedMoves).toContain(moveResponse.move)
         }
     })
+    test('should never move into its own body', () => {
+      // arrange
+      const me = createBattlesnake('me', [{ x: 2, y: 0 }, { x: 1, y: 0 }, { x: 0, y: 0 }])
+      const gameState = createGameState(me)
+      
+    })
 })
