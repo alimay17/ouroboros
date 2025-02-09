@@ -3,7 +3,7 @@ function info() {
   console.log("INFO")
   const response = {
     apiversion: "1",
-    author: "Aly C",
+    author: "Alice v",
     color: "#98473E",
     head: "evil",
     tail: "fat-rattle"
